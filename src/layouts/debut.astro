@@ -1,0 +1,35 @@
+---
+interface Props {
+    language?:string
+    title?: string
+}
+
+const{
+    language = "fr",
+    title = "Andra vision"
+} =Astro.props;
+
+import '../style/style.scss';
+import Webheader from '../components/Webheader.astro';
+
+---
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+</head>
+<body>
+    <Webheader/>
+
+        <slot /> 
+
+
+
+    
+</body>
+</html>

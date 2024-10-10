@@ -1,0 +1,476 @@
+$primary-color: rgba(110, 110, 110, 0.37); // Couleur principale
+$hover-color: rgb(208, 240, 52); // Couleur de survol des liens
+$text-color: white; // Couleur du texte
+
+// Style global
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-color: #000;
+}
+
+// ================================
+// Logo et texte en haut de la page
+// ================================
+.top_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  box-sizing: border-box; // Ajout pour s'assurer que padding ne dépasse pas la largeur
+}
+
+
+.logo {
+  width: 100px; // Taille du logo
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo:active {
+  transform: rotate(360deg);
+}
+
+.created_by {
+  color: $text-color;
+  font-size: 28px; // Taille ajustée pour "Created"
+  text-align: left; // Alignement à gauche
+  margin-left: 20px; // Décalage du bord gauche
+  line-height: 1.2; // Ajustement de l'espacement entre les lignes
+
+}
+
+// Ajout d'une classe pour centrer "by Loubus"
+.created_by span {
+  display: block; // Fait passer "by" à la ligne suivante
+  font-size: 18px; // Taille plus petite pour "by Loubus"
+  text-align: center; // Centre le texte
+  color: gray; // Couleur grise pour "by Loubus"
+}
+
+// ====================================
+// Style de la navbar (inchangé)
+// ====================================
+
+.container_navbar {
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $primary-color;
+  border-radius: 50px;
+  padding: 20px 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.link_nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.link_nav li {
+  display: inline;
+}
+
+.link_nav a {
+  color: $text-color;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, border-radius 0.3s ease;
+}
+
+.link_nav a:hover {
+  background-color: $hover-color;
+  border-radius: 25px;
+}
+
+// ====================================
+// Style futuriste pour la section Hero
+// ====================================
+
+.hero_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(120deg, #1a1a1a, #000);
+  text-align: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.hero_title {
+  font-size: 4em;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  color: rgb(208, 240, 52);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.hero_subtitle {
+  font-size: 1.5em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 20px;
+  animation: fadeIn 2s ease-out 1s;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px rgb(208, 240, 52), 0 0 20px rgb(208, 240, 52), 0 0 30px rgb(208, 240, 52);
+  }
+  100% {
+    text-shadow: 0 0 20px rgb(208, 240, 52), 0 0 30px rgb(208, 240, 52), 0 0 40px rgb(208, 240, 52);
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+// =====================================
+// Cartes animées avec effet futuriste
+// =====================================
+
+.cards_section {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 50px 0;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  width: 300px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card_content {
+  padding: 20px;
+  text-align: center;
+}
+
+.intro_section {
+  display: flex;
+  height: 100vh; /* Prend toute la hauteur de l'écran */
+  background: linear-gradient(120deg, #1a1a1a, #000); /* Dégradé de fond */
+  flex-wrap: nowrap;
+  justify-content: center;
+  padding: 20px; /* Ajout de padding */
+  margin-top: -10px; /* Petite marge négative pour rapprocher des sections */
+  border-radius: 10px;
+}
+
+.intro_title {
+  position: relative; // Positionnement pour les barres de soulignement
+  display: inline-block; // Pour que le texte s'ajuste à la taille des barres
+  font-size: 3.1em;
+  background: linear-gradient(90deg, rgb(177, 177, 177) 0%, rgb(70, 70, 70) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 2;
+  max-width: 95%;
+  margin: 0 auto;
+  text-align: center;
+
+  // Barres de soulignement
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    height: 1px; // Épaisseur de la barre
+    background-color: #464646; // Couleur de la barre
+    left: 0;
+    right: 0; // Les barres s'étendent sur toute la largeur du texte
+  }
+
+  // Première barre (au-dessus du texte)
+  &:before {
+    top: 100px; // Positionnement juste au-dessus du texte
+    width: 100%; // Largeur initiale de la barre
+    transition: width 0.3s ease; // Transition fluide lors du redimensionnement
+  }
+
+  // Deuxième barre (en-dessous du texte)
+  &:after {
+    bottom: 630px; // Positionnement juste en dessous du texte
+    width: 100%; // Largeur initiale de la barre
+    transition: width 0.3s ease;
+  }
+
+  // Réduction de la largeur des barres en fonction de la taille de l'écran
+  @media (max-width: 1200px) {
+    &:before, &:after {
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 800px) {
+    &:before, &:after {
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 500px) {
+    &:before, &:after {
+      width: 70%;
+    }
+  }
+}
+
+.highlight {
+  padding: 0 10px;
+  background-color: yellow; /* Fond jaune */
+  color: black !important; /* Texte noir forcé */
+  border-radius: 5px;
+  z-index: 1; /* Assurer que l'élément est au-dessus */
+  position: relative; /* Nécessaire pour le z-index */
+  background-clip: border-box; /* Désactiver background-clip pour l'élément */
+  -webkit-background-clip: border-box; /* Désactiver WebKit background-clip */
+  -webkit-text-fill-color: initial; /* Réinitialiser la couleur du texte sur WebKit */
+}
+
+
+
+// page app de moi //
+
+
+
+.custom-header {
+  display: flex;
+  justify-content: space-between; // Distribution de l'espace entre les éléments
+  align-items: center; // Centrer verticalement les éléments
+  background-color: #1a1a1a; // Couleur de fond
+  border-bottom-left-radius: 20px; // Arrondir coin gauche bas
+  border-bottom-right-radius: 20px; // Arrondir coin droit bas
+  padding: 20px; // Padding pour espacer les éléments à l'intérieur
+  max-width: 100vw; // Limiter la largeur pour empêcher le scroll horizontal
+  overflow: hidden; // Empêche le contenu de déborder
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); // Ajout d'une ombre subtile
+  height: 110px; // Hauteur du header
+
+
+  // Section gauche (image)
+  .header-left {
+    flex: 0 0 auto; // Taille fixe pour l'image
+    display: flex;
+    align-items: center;
+
+    .profile-image {
+      width: 80px; // Taille de l'image
+      height: 80px;
+      object-fit: cover; // Ajuster l'image pour remplir le conteneur
+      border: 2px solid white; // Optionnel : un contour blanc
+    }
+  }
+
+  // Section centrale (titre avec effet glow)
+  .header-center {
+    flex: 1; // Laisser cet élément occuper le maximum d'espace
+    display: flex;
+    justify-content: center;
+
+    h1 {
+      font-size: 2.5em;
+      color: rgb(208, 240, 52); // Couleur néon
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 0;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif; // Police stylée
+
+      // Animation glow
+      animation: glow 1.5s ease-in-out infinite alternate; // Animation fluide
+    }
+  }
+
+  // Section droite (prénom et nom)
+  .header-right {
+    flex: 0 0 auto; // Taille fixe pour le prénom et le nom
+    text-align: right;
+    color: #fff; // Couleur blanche pour le prénom
+
+    p {
+      margin: 0;
+      display: flex;
+      flex-direction: column; // Organiser prénom et nom en colonne
+      align-items: center; // Centrer le prénom et le nom
+
+      .prenom {
+        font-size: 1.2em; // Taille plus petite pour le prénom
+        color: white; // Couleur blanche pour le prénom
+        text-transform: uppercase; // Majuscules pour le prénom
+      }
+
+      .nom {
+        font-size: 1em; // Taille plus petite pour le nom
+        color: gray; // Couleur grise pour le nom
+        text-transform: uppercase; // Majuscules pour le nom
+        margin-top: -5px; // Espacement négatif pour rapprocher du prénom
+      }
+    }
+  }
+}
+
+// Animation glow pour le titre
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px rgb(208, 240, 52), 0 0 20px rgb(208, 240, 52), 0 0 30px rgb(208, 240, 52);
+  }
+  100% {
+    text-shadow: 0 0 20px rgb(208, 240, 52), 0 0 30px rgb(208, 240, 52), 0 0 40px rgb(208, 240, 52);
+  }
+}
+
+
+
+//container video 
+
+
+.video-container {
+  width: 60%; // Ajuste la largeur du conteneur pour qu'il ne prenne pas toute la largeur
+  margin: 30px auto; // Centrer le conteneur et ajouter de l'espace autour
+  padding: 20px; // Espace intérieur du conteneur
+  padding-top: 50px;
+  border-radius: 15px; // Bordures arrondies
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); // Ombre subtile pour l'effet "flottant"
+  display: flex;
+  justify-content: center; // Centrer la vidéo à l'intérieur
+
+  video {
+    width: 100%; // La vidéo prend toute la largeur du conteneur
+    border-radius: 10px; // Coins arrondis de la vidéo pour correspondre au conteneur
+  }
+}
+
+//list ol li ...
+
+
+.list-container {
+  width: 80%; // Largeur du conteneur
+  margin: 30px auto; // Centrage et marge autour du conteneur
+  padding: 20px; // Espace intérieur
+  background-color: #1a1a1a; // Couleur de fond du conteneur
+  border-radius: 15px; // Coins arrondis
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); // Ombre subtile pour l'effet "flottant"
+  
+  .list-title {
+    font-size: 2em;
+    color: rgb(208, 240, 52); // Couleur néon pour le titre
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .modern-list {
+    padding-left: 20px; // Décalage des listes
+    list-style-type: none; // Supprimer les puces par défaut
+    font-family: 'Montserrat', sans-serif; // Police moderne
+    font-size: 1.2em;
+    color: #ddd; // Texte en gris clair
+    line-height: 1.8;
+    
+    li {
+      position: relative;
+      padding-left: 20px; // Espace avant le texte des items
+      margin-bottom: 10px; // Espacement entre les éléments de la liste
+      
+      &:before {
+        content: '•'; // Puce stylée
+        position: absolute;
+        left: 0;
+        color: rgb(208, 240, 52); // Couleur néon pour les puces
+        font-size: 1.5em; // Taille des puces
+      }
+    }
+    
+    ol & {
+      counter-reset: li-counter; // Réinitialise le compteur pour les listes numérotées
+    }
+    
+    ol li {
+      list-style-type: none; // Supprimer les numéros par défaut
+      counter-increment: li-counter; // Incrémentation du compteur
+      padding-left: 30px; // Espace supplémentaire pour les numéros
+      
+      &:before {
+        content: counter(li-counter) '.'; // Affichage du numéro
+        position: absolute;
+        left: 0;
+        color: rgb(208, 240, 52); // Couleur néon pour les numéros
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+
+
+
+////container merde audio //
+.container-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // 3 colonnes de taille égale
+  gap: 20px; // Espace entre les conteneurs
+  padding: 20px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr); // Réduire à 2 colonnes sur écran plus petit
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr; // Une seule colonne sur petit écran
+  }
+}
+
+.audio-container {
+  background-color: #1a1a1a; // Fond sombre
+  padding: 20px;
+  border-radius: 10px; // Coins arrondis
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); // Ombre pour l'effet de profondeur
+  text-align: center; // Centrer le contenu
+  transition: transform 0.3s ease; // Animation légère au survol
+
+  &:hover {
+    transform: scale(1.05); // Agrandissement au survol
+  }
+
+  img {
+    width: 100%; // Image prend toute la largeur
+    height: 200px; // Hauteur fixe pour l'image
+    object-fit: cover; // L'image s'ajuste bien sans déformation
+    border-radius: 10px 10px 0 0; // Coins arrondis en haut
+  }
+
+  audio {
+    width: 100%; // Le lecteur audio prend toute la largeur
+    margin-top: 10px;
+  }
+}
+
+
+
